@@ -4,15 +4,11 @@
 
 A clean, simple, and minimalist theme for the GNOME Shell. This theme is designed for users who appreciate a lightweight and distraction-free desktop experience, allowing you to focus on your work.
 
----
-
 ## Features
 
 * **Minimalist Design:** No unnecessary clutter, providing a clean aesthetic.
 * **Lightweight:** Built to be simple and straightforward.
 * **Easy to Install:** Get up and running in a few steps.
-
----
 
 ## Installation
 
@@ -62,8 +58,6 @@ This method uses `git` to clone the repository.
 5.  If you don't have a `.themes` folder, create one now (case-sensitive).
 6.  Copy the extracted folder (e.g., `Transparent-Shell-Theme-main`) into your `.themes` folder.
 
------
-
 ## Activating the Theme
 
 After installing, you must enable the theme:
@@ -75,7 +69,6 @@ After installing, you must enable the theme:
 
 Your new shell theme should apply immediately.
 
------
 
 ## Configuration
 
@@ -83,7 +76,6 @@ To get the complete look shown in the preview, check out the wallpaper:
 
   * **Wallpaper Link:** [https://www.opendesktop.org/p/1214204/](https://www.opendesktop.org/p/1214204/)
 
------
 
 ## Support & Feedback
 
@@ -93,7 +85,6 @@ This theme is free, but if you find it useful and wish to show your support, don
 
   * **PayPal:** `mahdi.mad08@gmail.com`
 
------
 
 ## License
 
