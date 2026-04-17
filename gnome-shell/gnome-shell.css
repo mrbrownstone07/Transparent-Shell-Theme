@@ -1,10 +1,4 @@
-/*
-Author: madcap
-Description: gnome shell theme 
-Theme Name: Transparent Shell Theme
-Version: 3
-Date: 19 Oct 2025
-*/
+/* On-screen keyboard */
 
 /* keyboard background */
 #keyboard {
@@ -20,7 +14,8 @@ Date: 19 Oct 2025
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 	background-color: rgba(217, 217, 217, 0.08);
 	color: rgba(242, 242, 242, 1);
-	transition-duration: 75ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .keyboard-key:hover {
@@ -102,7 +97,8 @@ Date: 19 Oct 2025
 	border-radius: 10px;
 	padding: 0px 15px;
 	color: rgba(242, 242, 242, 1);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .word-suggestions StButton:hover,
@@ -116,33 +112,37 @@ Date: 19 Oct 2025
 
 /* QS section */
 .quick-settings {
-	padding: 12px !important;
-	border-radius: 24px !important;
+	padding: 10px;
+	background-color: transparent;
+	width: 380px;
 }
 
 .quick-settings-grid {
-	spacing-rows: 12px;
-	spacing-columns: 12px;
+	spacing-rows: 10px;
+	spacing-columns: 10px;
 }
 
 
 /* screenshot / settings / lock / power options; part of quick-toggle-arrow [44-47] quick-toggle-menu-button [48+] */
 .icon-button {
-	background-color: rgba(217, 217, 217, 0.08);
+	background-color: rgba(25, 25, 25, 0.65);
 	color: rgba(242, 242, 242, 1);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	border-radius: 99px;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+	icon-size: 1.1em;
 }
 
 .icon-button:hover {
-	background-color: rgba(217, 217, 217, 0.13);
+	background-color: rgba(217, 217, 217, 0.08);
 }
 
 .icon-button:focus,
 .quick-toggle:focus,
 .slider-bin:focus {
-	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1) !important;
+	background-color: rgba(27, 27, 27, 0.65);
+	box-shadow: inset 0 0 0 2px @accent_bg_color !important;
 }
 
 
@@ -155,8 +155,16 @@ Date: 19 Oct 2025
 	/* 48+ */
 	color: rgba(242, 242, 242, 1);
 	border-radius: 14px;
-	background-color: rgba(217, 217, 217, 0.08);
-	transition-duration: 100ms;
+	background-color: rgba(25, 25, 25, 0.65);
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	min-height: 48px;
+	padding: 8px 12px;
+	spacing: 10px;
+}
+
+.quick-toggle StIcon {
+	icon-size: 1.2em;
 }
 
 .quick-toggle-has-menu .quick-toggle-separator {
@@ -211,21 +219,16 @@ Date: 19 Oct 2025
 .quick-toggle-has-menu .quick-toggle:hover,
 .quick-toggle-has-menu .quick-toggle-menu-button:hover {
 	color: rgba(242, 242, 242, 1);
-	background-color: rgba(217, 217, 217, 0.13);
+	background-color: rgba(217, 217, 217, 0.12);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .quick-toggle:checked,
 .quick-menu-toggle .quick-toggle:checked,
-.quick-menu-toggle .quick-toggle-arrow:checked,
-.quick-toggle-has-menu .quick-toggle:checked,
-.quick-toggle-has-menu .quick-toggle-menu-button:checked {
-	color: rgba(242, 242, 242, 1);
-	background-color: rgba(66, 66, 66, 1);
-	/* some distributions may have gradient by default (aka Zorin OS) */
-	background-gradient-start: rgba(66, 66, 66, 1);
-	background-gradient-end: rgba(66, 66, 66, 1);
-
-	border-color: transparent;
+.quick-toggle-has-menu .quick-toggle:checked {
+	background-color: @accent_bg_color;
+	color: @accent_fg_color;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .quick-toggle:checked:hover,
@@ -233,8 +236,17 @@ Date: 19 Oct 2025
 .quick-menu-toggle .quick-toggle-arrow:checked:hover,
 .quick-toggle-has-menu .quick-toggle:checked:hover,
 .quick-toggle-has-menu .quick-toggle-menu-button:checked:hover {
-	color: rgba(242, 242, 242, 1);
-	background-color: rgba(56, 56, 56, 1);
+	color: @accent_fg_color;
+	background-color: @accent_bg_color;
+	brightness: 1.1;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.quick-toggle:active,
+.quick-menu-toggle .quick-toggle:active,
+.quick-toggle-has-menu .quick-toggle:active {
+	brightness: 0.9;
+	transition-duration: 50ms;
 }
 
 
@@ -249,7 +261,7 @@ Date: 19 Oct 2025
 }
 
 .quick-slider .slider-bin:focus {
-	background-color: rgba(217, 217, 217, 0.08);
+	background-color: rgba(27, 27, 27, 0.65);
 }
 
 /* quick slider icon */
@@ -259,6 +271,7 @@ Date: 19 Oct 2025
 	padding: 6px;
 	border-radius: 11px;
 	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .quick-slider .icon-button:hover {
@@ -269,7 +282,7 @@ Date: 19 Oct 2025
 
 
 /* expanded menu */
-/* overrides because of 
+/* overrides because of
 https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0ecd66efd50a1#fb75f14505e58d3bc51f2498ef328d1405d89e83_94_95 */
 .quick-toggle-menu {
 	background-color: rgba(26, 26, 26, 0.95) !important;
@@ -290,11 +303,11 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 .quick-toggle-menu .header .icon.active {
-	background-color: rgba(66, 66, 66, 1);
-	color: rgba(242, 242, 242, 1);
+	background-color: @accent_bg_color;
+	color: @accent_fg_color;
 	/* some distributions may have gradient by default (aka Zorin OS) */
-	background-gradient-start: rgba(66, 66, 66, 1);
-	background-gradient-end: rgba(66, 66, 66, 1);
+	background-gradient-start: @accent_bg_color;
+	background-gradient-end: @accent_bg_color;
 }
 
 .quick-toggle-menu .popup-menu-item {
@@ -380,14 +393,16 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 .datemenu-today-button:hover {
-	transition-duration: 100ms;
-	background-color: rgba(64, 64, 64, 0.2);
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	background-color: rgba(25, 25, 25, 0.65);
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
 }
 
 .datemenu-today-button:focus {
-	transition-duration: 100ms;
-	background-color: rgba(66, 66, 66, 0.2);
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	background-color: rgba(27, 27, 27, 0.65);
 	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1) !important;
 }
 
@@ -407,12 +422,11 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 /* Calendar */
 
 .calendar {
+	background-color: rgba(25, 25, 25, 0.65);
 	border-radius: 14px;
-	background-color: rgba(64, 64, 64, 0.2);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
-	border-color: transparent;
-	padding: 3px;
-	margin: 0;
+	margin: 8px;
+	padding: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-month-header {
@@ -452,7 +466,8 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 	/* 46+ */
 	border-radius: 9px;
 	padding: 0;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .calendar-day {
@@ -467,7 +482,7 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .calendar .calendar-day-heading:selected:hover,
 /* 46+ */
 .calendar .calendar-month-header .pager-button:hover {
-	background-color: rgba(217, 217, 217, 0.13);
+	background-color: rgba(217, 217, 217, 0.08);
 	color: rgba(242, 242, 242, 1);
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
@@ -476,8 +491,8 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .calendar .calendar-day-heading:focus,
 /* 46+ */
 .calendar .calendar-month-header .pager-button:focus {
-	background-color: rgba(66, 66, 66, 0.2);
-	box-shadow: inset 0 0 0 1.5px rgba(191, 191, 191, 1) !important;
+	background-color: rgba(27, 27, 27, 0.65);
+	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1) !important;
 }
 
 .calendar-day:selected,
@@ -492,19 +507,20 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 /* today button */
 .calendar-today,
 .calendar-today:selected {
-	background-color: rgba(66, 66, 66, 1);
-	color: rgba(242, 242, 242, 1) !important;
+	background-color: @accent_bg_color;
+	color: @accent_fg_color !important;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 	/* some distributions may have gradient by default (aka Zorin OS) */
-	background-gradient-start: rgba(66, 66, 66, 1);
-	background-gradient-end: rgba(66, 66, 66, 1);
+	background-gradient-start: @accent_bg_color;
+	background-gradient-end: @accent_bg_color;
 }
 
 .calendar-today:hover,
 .calendar-today:selected:hover,
 .calendar-today:focus,
 .calendar-today:selected:focus {
-	background-color: rgba(56, 56, 56, 1);
+	background-color: @accent_bg_color;
+	brightness: 1.05;
 }
 
 /* if day has event */
@@ -558,13 +574,14 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .events-button,
 .world-clocks-button,
 .weather-button {
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(25, 25, 25, 0.65);
 	color: rgba(242, 242, 242, 0.67);
 	border-radius: 14px;
 	margin: 0;
 	border-color: transparent;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-	transition-duration: 125ms;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 4px 12px rgba(0, 0, 0, 0.1);
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .events-button:hover,
@@ -576,12 +593,12 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .events-button:focus,
 .world-clocks-button:focus,
 .weather-button:focus {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1) !important;
 }
 
 .events-button:active,
-.world-clock-button:active,
+.world-clocks-button:active,
 .weather-button:active {
 	background-color: rgba(217, 217, 217, 0.13);
 }
@@ -772,7 +789,8 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 	height: 22px;
 	border-radius: 9px;
 	background-color: rgba(217, 217, 217, 0.08);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dnd-button:hover .toggle-switch {
@@ -802,7 +820,8 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 	color: rgba(242, 242, 242, 1);
 	background-color: rgba(217, 217, 217, 0.08);
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button:insensitive {
@@ -817,7 +836,7 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 .button:focus {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1) !important;
 }
 
@@ -828,7 +847,7 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 .message-list-clear-button:insensitive {
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(25, 25, 25, 0.65);
 }
 
 /* Sliders */
@@ -836,10 +855,10 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 .slider,
 .level {
 	-barlevel-background-color: rgba(217, 217, 217, 0.08);
-	-barlevel-color: rgba(242, 242, 242, 1);
-	color: rgba(242, 242, 242, 1);
+	-barlevel-color: @accent_bg_color;
+	color: @accent_bg_color;
 	/* slider handle color (47+) */
-	-barlevel-active-background-color: rgba(66, 66, 66, 1);
+	-barlevel-active-background-color: @accent_bg_color;
 	-barlevel-height: 10px;
 	-barlevel-border-width: 0px;
 	/* up to 46 */
@@ -850,7 +869,7 @@ https://gitlab.gnome.org/GNOME/gnome-shell/-/commit/beb77f58243265a6cc62b720a5b0
 }
 
 .level {
-	-barlevel-active-background-color: rgba(242, 242, 242, 1);
+	-barlevel-active-background-color: @accent_bg_color;
 	-barlevel-height: 8px;
 }
 
@@ -883,7 +902,8 @@ StScrollBar StButton#hhandle {
 	border-radius: 8px;
 	background-color: rgba(64, 64, 64, 0.75);
 	border: 3px solid transparent;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .message-list StScrollBar StButton#vhandle,
@@ -917,7 +937,8 @@ StScrollBar StButton#hhandle:active {
 	/* 46+ */
 	box-shadow: inset 0 0 0 0px rgba(255, 255, 255, 0);
 	/* fix default dash focused box-shadow*/
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	border-radius: 20px;
 	color: rgba(242, 242, 242, 1);
 	background-color: transparent;
@@ -951,7 +972,7 @@ StScrollBar StButton#hhandle:active {
 
 /* icon of systems action in search results (e.g. logout, suspend) */
 .system-action-icon {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	color: rgba(242, 242, 242, 1);
 	border-radius: 99px;
 	box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.03);
@@ -1001,7 +1022,7 @@ StScrollBar StButton#hhandle:active {
 .overview-tile:drop {
 	/* 46+ */
 	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1);
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 }
 
 
@@ -1022,7 +1043,8 @@ StScrollBar StButton#hhandle:active {
 	padding: 5px 7px;
 	color: rgba(242, 242, 242, 1);
 	font-weight: 700;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* folder title when editing */
@@ -1066,7 +1088,8 @@ StScrollBar StButton#hhandle:active {
 .page-navigation-arrow {
 	border-radius: 15px;
 	padding: 12px;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	background-color: transparent;
 }
 
@@ -1110,19 +1133,18 @@ StScrollBar StButton#hhandle:active {
 /* Dash */
 
 #dash .dash-background {
-	background-color: rgba(51, 51, 51, 0.7);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
-	border: none;
-	/* remove black border on ubuntu */
-	padding: 4px 2px 4px 2px;
-	border-radius: 23px;
+	background-color: rgba(20, 20, 20, 0.85);
+	border-radius: 20px;
+	padding: 4px;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 /* if used Dash to Dock extension */
 #dashtodockContainer #dash .dash-background {
 	border: none;
 	border-radius: 18px;
-	transition-duration: 250ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* when dash in overview */
@@ -1228,7 +1250,8 @@ StScrollBar StButton#hhandle:active {
 	border-radius: 0;
 	background-color: rgba(51, 51, 51, 0.7);
 	box-shadow: none;
-	transition-duration: 250ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* animation fix when extended dash */
@@ -1289,13 +1312,14 @@ StScrollBar StButton#hhandle:active {
 
 /* users button */
 .login-dialog-user-list .login-dialog-user-list-item {
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(25, 25, 25, 0.65);
 	border-radius: 20px;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .login-dialog-user-list:expanded .login-dialog-user-list-item {
-	transition-duration: 200ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .login-dialog-user-list:expanded .login-dialog-user-list-item:hover {
@@ -1325,7 +1349,8 @@ StScrollBar StButton#hhandle:active {
 	min-height: 16px;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 	border-radius: 99px;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cancel-button:hover,
@@ -1434,11 +1459,11 @@ StScrollBar StButton#hhandle:active {
 
 /* Modal dialog */
 .modal-dialog {
-	border-radius: 20px;
+	background-color: rgba(25, 25, 25, 0.7);
+	background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
+	border-radius: 14px;
 	padding: 12px;
-	background-color: rgba(26, 26, 26, 0.95);
-	border: none;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 10px 30px rgba(0, 0, 0, 0.3);
 	color: rgba(242, 242, 242, 1);
 }
 
@@ -1461,7 +1486,7 @@ StScrollBar StButton#hhandle:active {
 
 /* password entry */
 .prompt-dialog-password-entry {
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(25, 25, 25, 0.65);
 	padding: 8px !important;
 }
 
@@ -1557,16 +1582,14 @@ StScrollBar StButton#hhandle:active {
 /* Panel */
 
 #panel {
-	background-color: rgba(23, 23, 23, .4);
-	border: 1px solid rgba(90, 105, 111, 0.5);
-	box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
-	border-top: 0px;
-	border-right: 0px;
-	border-left: 0px;
+	background-color: rgba(0, 0, 0, 0.65);
+	border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+	box-shadow: none;
 	height: 34px;
 	font-size: 13px;
 	font-weight: bold;
-	box-shadow: none;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* panel in overview, lock screen */
@@ -1574,7 +1597,8 @@ StScrollBar StButton#hhandle:active {
 #panel.unlock-screen,
 #panel.login-screen {
 	background-color: transparent;
-	transition-duration: 0.25s;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* i know margin are not used cuz hitboxes of buttons don't expand to screen edges */
@@ -1586,6 +1610,9 @@ StScrollBar StButton#hhandle:active {
 /* allows to shrink horizontal padding for app icons */
 .panel-button {
 	-natural-hpadding: 6px !important;
+	border-radius: 12px;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .panel-status-indicators-box:first-child {
@@ -1605,10 +1632,15 @@ StScrollBar StButton#hhandle:active {
 }
 
 .panel-button:hover,
-.panel-button:hover .clock,
+.panel-button:hover .clock {
+	background-color: rgba(255, 255, 255, 0.1);
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .panel-button:active,
 .panel-button:active .clock {
-	background-color: rgba(0, 64, 192, 0.13);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* workspaces indicator in activities button (45+) */
@@ -1681,7 +1713,7 @@ StScrollBar StButton#hhandle:active {
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 	border-radius: 18px;
 	border: none;
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(25, 25, 25, 0.65);
 	color: rgba(242, 242, 242, 1);
 }
 
@@ -1717,7 +1749,7 @@ StScrollBar StButton#hhandle:active {
 
 .list-search-result:focus,
 .search-provider-icon:focus {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	box-shadow: inset 0 0 0 1px rgba(191, 191, 191, 1) !important;
 
 }
@@ -1734,7 +1766,8 @@ StEntry,
 .search-entry {
 	border-radius: 13px;
 	padding: 8px;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	border: 1px solid rgba(255, 255, 255, 0.03);
 	color: rgba(242, 242, 242, 0.67);
 	selection-background-color: rgba(66, 66, 66, 1);
@@ -1746,7 +1779,7 @@ StEntry {
 }
 
 .search-entry {
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(25, 25, 25, 0.65);
 
 }
 
@@ -1833,12 +1866,13 @@ StEntry:focus {
 .popup-menu-content .message,
 .message-view .message {
 	/* 48+ */
-	background-color: rgba(64, 64, 64, 0.2);
+	background-color: rgba(20, 20, 20, 0.90);
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 	margin: 0;
 	/* fix margins for GNOME older than 46 */
 	border-radius: 13px;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .message-list .message:hover {
@@ -1846,7 +1880,7 @@ StEntry:focus {
 }
 
 .message-list .message:focus {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	box-shadow: inset 0 0 0 2px rgba(191, 191, 191, 1) !important;
 }
 
@@ -1890,7 +1924,8 @@ StEntry:focus {
 	color: rgba(242, 242, 242, 1);
 	background-color: rgba(217, 217, 217, 0.08);
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	border-radius: 99px;
 }
 
@@ -1908,7 +1943,7 @@ StEntry:focus {
 .message-close-button:hover,
 .message-expand-button:hover,
 .message-collapse-button:hover {
-	background-color: rgba(217, 217, 217, 0.13);
+	background-color: rgba(217, 217, 217, 0.08);
 }
 
 .message-close-button:active,
@@ -1939,7 +1974,8 @@ StEntry:focus {
 	/* padding: 0 14px; */
 	/* margin: 20px 2px; */
 	color: rgba(242, 242, 242, 1);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .message-media-control:hover {
@@ -2024,8 +2060,8 @@ StEntry:focus {
 
 /* Activities Ripple (Settings - Multitasking - Hot Corner) */
 .ripple-box {
-	background-color: rgba(66, 66, 66, 0.2);
-	box-shadow: 0 0 2px 2px rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
+	box-shadow: 0 0 2px 2px rgba(27, 27, 27, 0.65);
 	border-radius: 0 0 99px 0;
 }
 
@@ -2046,7 +2082,7 @@ StEntry:focus {
 
 /* selected indicator */
 .workspace-thumbnail-indicator {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	border-color: rgba(242, 242, 242, 0.38);
 	border-width: 1px;
 	border-radius: 3px;
@@ -2055,7 +2091,7 @@ StEntry:focus {
 
 /* Tiled window previews */
 .tile-preview {
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 	border: 1px solid rgba(66, 66, 66, 1);
 }
 
@@ -2065,13 +2101,15 @@ StEntry:focus {
 .popup-menu-content {
 	/* popovers, datemenu, quick settings... */
 	color: rgba(242, 242, 242, 1);
-	background: rgba(26, 26, 26, 0.95);
-	padding: 8px;
+	background-color: rgba(20, 20, 20, 0.90);
+	background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+	padding: 12px;
 	margin: 5px 0;
 	/* for panel popovers */
-	border-radius: 20px;
-	border: 1px solid rgba(255, 255, 255, 0.07);
-	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+	border-radius: 18px;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-top-color: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .popup-menu-item,
@@ -2080,6 +2118,7 @@ StEntry:focus {
 	/* right-click (and panel) app menu */
 	border-radius: 12px;
 	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .popup-menu-item {
@@ -2099,20 +2138,25 @@ StEntry:focus {
 	margin: 0;
 }
 
-.popup-menu-item:focus,
-.popup-menu-item:hover,
-.popup-menu-item:checked {
+.popup-menu-item:focus {
 	background-color: rgba(217, 217, 217, 0.08) !important;
 	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03) !important;
 	color: rgba(242, 242, 242, 1);
 }
 
+.popup-menu-item:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .popup-menu-item:checked {
-	border-radius: 12px 12px 0 0;
+	border-radius: 14px;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 .popup-menu-item:active {
-	background-color: rgba(217, 217, 217, 0.13);
+	background-color: rgba(0, 0, 0, 0.1);
 	color: rgba(242, 242, 242, 1);
 }
 
@@ -2152,7 +2196,9 @@ StEntry:focus {
 
 .popup-sub-menu .popup-menu-item:hover,
 .popup-sub-menu .popup-menu-item:focus {
-	background-color: rgba(217, 217, 217, 0.13) !important;
+	background-color: rgba(255, 255, 255, 0.1) !important;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .popup-menu-item:insensitive {
@@ -2191,7 +2237,8 @@ StEntry:focus {
 	color: rgba(242, 242, 242, 1);
 	background-color: transparent;
 	border-radius: 14px;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .screenshot-ui-show-pointer-button {
@@ -2249,7 +2296,7 @@ StEntry:focus {
 
 .screenshot-ui-window-selector-window:checked .screenshot-ui-window-selector-window-border {
 	border-color: rgba(66, 66, 66, 1);
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 }
 
 .screenshot-ui-window-selector-check {
@@ -2278,7 +2325,8 @@ StEntry:focus {
 /* capture button */
 .screenshot-ui-capture-button .screenshot-ui-capture-button-circle {
 	background-color: rgba(191, 191, 191, 1);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	border-radius: 99px;
 }
 
@@ -2319,7 +2367,8 @@ StEntry:focus {
 	background-color: transparent;
 	color: rgba(242, 242, 242, 0.67);
 	border-radius: 99px;
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .screenshot-ui-shot-cast-button:hover,
@@ -2384,7 +2433,8 @@ StEntry:focus {
 	border: 1px solid rgba(255, 255, 255, 0.03);
 	border-radius: 99px;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-	transition-duration: 100ms;
+	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .window-close:hover,
@@ -2416,12 +2466,13 @@ StEntry:focus {
 	border-radius: 6px;
 	border: 2px solid rgba(242, 242, 242, 0.38);
 	transition-duration: 150ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .check-box:hover StIcon,
 .check-box:active StIcon {
 	border-color: rgba(242, 242, 242, 0.67);
-	background-color: rgba(66, 66, 66, 0.2);
+	background-color: rgba(27, 27, 27, 0.65);
 }
 
 .check-box:checked StIcon {
@@ -2467,7 +2518,7 @@ StEntry:focus {
 }
 
 .message-view .message {
-	background-color: rgba(36, 36, 36, 0.95);
+	background-color: rgba(20, 20, 20, 0.90);
 	margin-bottom: 8px !important;
 }
 
